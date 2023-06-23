@@ -30,24 +30,10 @@ func Connect() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	log.Println("Successfully connect to db")
-}
-
-func CreateTables() {
-	// 创建 users 表
-	_, err := DB.Exec(`CREATE TABLE IF NOT EXISTS users (
-		id SERIAL PRIMARY KEY,
-		email VARCHAR(100) NOT NULL,
-		created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-		updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-	)`)
-	if err != nil {
-		log.Fatalln(err)
-	}
-	log.Println("Successfully create users table")
+	log.Println("✨ Successfully connect to db")
 }
 
 func Close() {
 	DB.Close()
-	log.Println("Successfully close db")
+	log.Println("🌑 Successfully close db")
 }
