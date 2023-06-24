@@ -20,4 +20,5 @@ money-keeper
 
 # Go workspace file
 go.work
+config.json
 

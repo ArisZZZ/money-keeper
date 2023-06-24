@@ -10,14 +10,7 @@ import (
 	"github.com/golang-migrate/migrate/v4"
 	"github.com/golang-migrate/migrate/v4/database/postgres"
 	_ "github.com/golang-migrate/migrate/v4/source/file"
-)
-
-const (
-	host     = "localhost"
-	port     = 5432
-	user     = "money-keeper"
-	password = "123456"
-	dbname   = "money-keeper-dev"
+	"github.com/spf13/viper"
 )
 
 func CreateMigrate(filename string) {
@@ -34,7 +27,11 @@ func MigrateUp() {
 		log.Fatalln(err)
 	}
 	db, err := sql.Open("postgres", fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
-		host, port, user, password, dbname))
+		viper.GetString("database.host"),
+		viper.GetInt("database.port"),
+		viper.GetString("database.user"),
+		viper.GetString("database.password"),
+		viper.GetString("database.dbname")))
 	if err != nil {
 		log.Panic(err)
 	}
@@ -62,7 +59,11 @@ func MigrateSteps(step int) {
 		log.Fatalln(err)
 	}
 	db, err := sql.Open("postgres", fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
-		host, port, user, password, dbname))
+		viper.GetString("database.host"),
+		viper.GetInt("database.port"),
+		viper.GetString("database.user"),
+		viper.GetString("database.password"),
+		viper.GetString("database.dbname")))
 	if err != nil {
 		log.Panic(err)
 	}

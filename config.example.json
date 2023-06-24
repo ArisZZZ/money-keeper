@@ -1,0 +1,9 @@
+{
+	"database": {
+		"host": "localhost",
+		"prot": 5432,
+		"user": "<your user name>",
+		"password": "<your user password>",
+		"dbname": "<your db name>"
+	}
+}
